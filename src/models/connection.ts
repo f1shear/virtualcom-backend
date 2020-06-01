@@ -127,7 +127,7 @@ const transition = (
   );
 };
 
-export const createConnection = (caller: number, callee: number) => {
+export const createConnection = (caller: number, callee: number): Connection => {
   const connection: Connection = {
     caller,
     callee,
@@ -140,7 +140,7 @@ export const createConnection = (caller: number, callee: number) => {
   return connection;
 };
 
-export const updateConnection = (id: number, action: ConnectionAction) => {
+export const updateConnection = (id: number, action: ConnectionAction): Connection => {
   if (connections[id] === undefined)
     throw new Error("connection doesn't exist");
   const connection = transition(connections[id], action);
